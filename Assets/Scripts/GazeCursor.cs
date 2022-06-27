@@ -15,7 +15,6 @@ public class GazeCursor : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("CASI IS " + cast_ray);
         cast_ray = gameObject.GetComponent<cast_ray>();
         SceneOrganiser.instance.castRay = cast_ray;
     }
@@ -49,7 +48,7 @@ public class GazeCursor : MonoBehaviour
     public void StartAnalysis()
     {
         CustomVisionAnalyzer vision = SceneOrganiser.instance.GetComponent<CustomVisionAnalyzer>();
-        vision.StartAnalysis();
+        //vision.StartAnalysis();
     }
 
 }

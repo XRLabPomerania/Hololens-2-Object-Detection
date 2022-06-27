@@ -6,7 +6,6 @@ using Unity.Barracuda;
 using Newtonsoft.Json;
 using System.IO;
 using UnityEngine.Networking;
-//using OpenCvSharp;
 using UnityEngine.Windows.WebCam;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.UI;
@@ -22,8 +21,11 @@ public class SceneOrganiser : MonoBehaviour
     internal GameObject cursor;
     public cast_ray castRay;
     internal GameObject imagePlane;
-    CustomVisionAnalyzer analyzer;
+    public CustomVisionAnalyzer analyzer;
     internal float probabilityThreshold = 0.99f;
+    public bool stillWorking = false;
+
+    internal GameObject videoCube;
 
     public GameObject prefab;
     public int pix_x = 960;
@@ -39,21 +41,12 @@ public class SceneOrganiser : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        analyzer = gameObject.AddComponent<CustomVisionAnalyzer>();
         gameObject.AddComponent<CustomVisionObjects>();
-        //gameObject.AddComponent<cast_ray>();
-        //preprocess = gameObject.AddComponent<Preprocess>();
+        gameObject.AddComponent<Preprocess>();
     }
-    /*
-        string camName = WebCamTexture.devices[0].name;
-        WebCamTexture webcamTexture = new WebCamTexture(camName, Screen.width, Screen.height, 30);
-        webcamTexture.Play();
-        globalTex = webcamTexture;
-     */
+
     void Start()
     {
-        Debug.Log("CASI IS " + castRay);
-
     }
 
 

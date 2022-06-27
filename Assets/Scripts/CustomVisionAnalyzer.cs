@@ -3,25 +3,34 @@ using Unity.Barracuda;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
-using System;
+using System.Runtime.InteropServices;
+
+
+[StructLayout(LayoutKind.Explicit)]
+public struct Color32Array
+{
+    [FieldOffset(0)]
+    public byte[] byteArray;
+
+    [FieldOffset(0)]
+    public Color32[] colors;
+}
 
 public class CustomVisionAnalyzer : MonoBehaviour
 {
     const int IMAGE_SIZE = 224;
     const string INPUT_NAME = "images";
     const string OUTPUT_NAME = "Softmax";
-    bool previousRoundEnded = true;
+
+    private Preprocess preprocess;
 
     WebCamTexture webcamTexture;
     cast_ray castRay;
+    Model model;
 
     [Header("Model Stuff")]
     public NNModel modelFile;
     public TextAsset labelAsset;
-
-    [Header("Scene Stuff")]
-    public Preprocess preprocess;
-    //public Text uiText;
 
     string[] labels;
     IWorker worker;
@@ -32,21 +41,16 @@ public class CustomVisionAnalyzer : MonoBehaviour
 
     void Start()
 	{
+        SceneOrganiser.instance.analyzer = this;
+        preprocess = SceneOrganiser.instance.GetComponent<Preprocess>();
         castRay = SceneOrganiser.instance.castRay;
-        InitWebCam();
-        var model = ModelLoader.Load(modelFile);
+        model = ModelLoader.Load(modelFile);
         worker = WorkerFactory.CreateWorker(WorkerFactory.Type.ComputePrecompiled, model);
+
         LoadLabels();
         
     }
 
-    void InitWebCam()
-    {
-        string camName = WebCamTexture.devices[0].name;
-        webcamTexture = new WebCamTexture(camName, Screen.width, Screen.height, 30);
-        //rawImage.texture = webcamTexture;
-        webcamTexture.Play();
-    }
 
     void LoadLabels()
     {
@@ -56,24 +60,13 @@ public class CustomVisionAnalyzer : MonoBehaviour
 
     void Update()
 	{
-        if (previousRoundEnded)
-        {
-            /*
-            Texture2D tex = new Texture2D(IMAGE_SIZE, IMAGE_SIZE, TextureFormat.RGB24, false);
-            ImagePlane.Instance.GetComponent<Renderer>().material.mainTexture = tex;
-            tex.Apply();
-            */
-            StartAnalysis();
-            previousRoundEnded = false;
-        }
-        
     }
 
-    public void StartAnalysis()
+    public void StartAnalysis(WebCamTexture wtex)
     {
-        //if (webCamTexture.didUpdateThisFrame && webCamTexture.width > 100
-        preprocess.ScaleAndCropImage(webcamTexture, IMAGE_SIZE, RunModel);
+        preprocess.ScaleAndCropImage(wtex, IMAGE_SIZE, RunModel);
     }
+
 
     void RunModel(byte[] pixels)
     {
@@ -81,15 +74,8 @@ public class CustomVisionAnalyzer : MonoBehaviour
     }
 
     IEnumerator RunModelRoutine(byte[] pixels)
-    {        
-        Texture2D tex = new Texture2D(IMAGE_SIZE, IMAGE_SIZE, TextureFormat.RGB24, false);
-        tex.LoadRawTextureData(pixels);
-        tex.Apply();
-        Debug.Log(tex.width + " " + tex.height);
-        ImagePlane.Instance.GetComponent<Renderer>().material.mainTexture = tex;
-
+    {
         Tensor tensor = TransformInput(pixels);
-
         var inputs = new Dictionary<string, Tensor> {
             { INPUT_NAME, tensor }
         };
@@ -97,19 +83,14 @@ public class CustomVisionAnalyzer : MonoBehaviour
         worker.Execute(inputs);
         Tensor outputTensor = worker.PeekOutput(OUTPUT_NAME);
 
-        //get largest output
         List<float> temp = outputTensor.ToReadOnlyArray().ToList();
         float max = temp.Max();
         int index = temp.IndexOf(max);
-
-        //uiText.text = labels[index];
         Debug.Log(labels[index]);
-        //castRay.CastToPixel(924, 512);
-        //castRay.ChangeLastLabel(labels[index]);
         castRay.CastToPixel(labels[index]);
         tensor.Dispose();
         outputTensor.Dispose();
-        previousRoundEnded = true;
+        SceneOrganiser.instance.stillWorking = false;
         yield return null;
     }
 
@@ -124,7 +105,10 @@ public class CustomVisionAnalyzer : MonoBehaviour
         return new Tensor(1, IMAGE_SIZE, IMAGE_SIZE, 3, transformedPixels);
     }
 
+
 }
+
+
 
 
 

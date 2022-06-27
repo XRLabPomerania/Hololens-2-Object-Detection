@@ -14,6 +14,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+
 /// <summary>
 /// Takes the image and handles tap gestures
 /// IMPORTANT: when the cursor is green, the camera is available to take an image, when its red the camera is busy
@@ -59,15 +60,5 @@ public class ImageCapture : MonoBehaviour
 
 
 
-    /*
-             Texture2D tex = new Texture2D(IMAGE_SIZE, IMAGE_SIZE, TextureFormat.RGB24, false);
-        tex.LoadRawTextureData(pixels);
-        tex.Apply();
-        Debug.Log(tex.width + " " + tex.height);
-        GameObject imgPlane = SceneOrganiser.instance.imagePlane;
-        RawImage rawImg = imgPlane.GetComponent<RawImage>();
-        rawImg.texture = tex;
-        imgPlane.GetComponent<Renderer>().material.mainTexture = tex;
-     */
 
 }

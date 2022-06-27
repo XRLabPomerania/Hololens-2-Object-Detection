@@ -11,6 +11,11 @@ public class Preprocess : MonoBehaviour
 
     UnityAction<byte[]> callback;
 
+    public void PlayWebCam(WebCamTexture webcamTex)
+    {
+        gameObject.GetComponent<Renderer>().material.mainTexture = webcamTex;
+    }
+
     public void ScaleAndCropImage(WebCamTexture webCamTexture, int desiredSize, UnityAction<byte[]> callback)
     {
         this.callback = callback;
