@@ -297,8 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ab7aedf4a47ec4caab272c50f49593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelFile: {fileID: 5022602860645237092, guid: 32c6189370781b54faf71b2e7be33ebc, type: 3}
-  labelAsset: {fileID: 4900000, guid: 2e7b64cec214e9f4da4e1f8d3e04228e, type: 3}
+  modelFile: {fileID: 5022602860645237092, guid: b91796583f272ed489549ab4edff4fb9, type: 3}
+  labelAsset: {fileID: 4900000, guid: 3fc171a0f49aabd428cee7b168c5b268, type: 3}
 --- !u!114 &406083452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castRay: {fileID: 0}
+  analyzer: {fileID: 0}
+  stillWorking: 0
   prefab: {fileID: 0}
   pix_x: 960
   pix_y: 540

@@ -44,6 +44,7 @@ public class CustomVisionAnalyzer : MonoBehaviour
         SceneOrganiser.instance.analyzer = this;
         preprocess = SceneOrganiser.instance.GetComponent<Preprocess>();
         castRay = SceneOrganiser.instance.castRay;
+        Debug.Log("DUDE " + modelFile.name);
         model = ModelLoader.Load(modelFile);
         worker = WorkerFactory.CreateWorker(WorkerFactory.Type.ComputePrecompiled, model);
 
