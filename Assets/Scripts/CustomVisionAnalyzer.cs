@@ -18,9 +18,13 @@ public struct Color32Array
 
 public class CustomVisionAnalyzer : MonoBehaviour
 {
-    const int IMAGE_SIZE = 224;
-    const string INPUT_NAME = "images";
-    const string OUTPUT_NAME = "Softmax";
+    const int IMAGE_SIZE = 416;
+    const string INPUT_NAME = "input_1";
+    const string OUTPUT_NAME = "Identity";
+    /// <summary>
+    /// For the other ONNX model use: 
+    /// Image size 224 + input name "images", output name "Softmax"
+    /// </summary>
 
     private Preprocess preprocess;
 
@@ -44,7 +48,6 @@ public class CustomVisionAnalyzer : MonoBehaviour
         SceneOrganiser.instance.analyzer = this;
         preprocess = SceneOrganiser.instance.GetComponent<Preprocess>();
         castRay = SceneOrganiser.instance.castRay;
-        Debug.Log("DUDE " + modelFile.name);
         model = ModelLoader.Load(modelFile);
         worker = WorkerFactory.CreateWorker(WorkerFactory.Type.ComputePrecompiled, model);
 
@@ -80,15 +83,15 @@ public class CustomVisionAnalyzer : MonoBehaviour
         var inputs = new Dictionary<string, Tensor> {
             { INPUT_NAME, tensor }
         };
-        
+        //Debug.Log("TENSOR DONE");
         worker.Execute(inputs);
         Tensor outputTensor = worker.PeekOutput(OUTPUT_NAME);
 
         List<float> temp = outputTensor.ToReadOnlyArray().ToList();
         float max = temp.Max();
         int index = temp.IndexOf(max);
-        Debug.Log(labels[index]);
-        castRay.CastToPixel(labels[index]);
+        //Debug.Log(labels[index]);
+        //castRay.CastToPixel(labels[index]);
         tensor.Dispose();
         outputTensor.Dispose();
         SceneOrganiser.instance.stillWorking = false;
