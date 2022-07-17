@@ -31,13 +31,14 @@ public class cast_ray : MonoBehaviour
     {
         CastToPixel(960, 540, label_text);
     }
-    void CastToPixel(int pix_x, int pix_y, string label_text)
-    {        
+    public void CastToPixel(int pix_x, int pix_y, string label_text)
+    {
+        Debug.Log("CAST TO PXL CALLED WITH " + pix_x + " " + pix_y);
         float fixed_angle = (Mathf.PI / 180) * 64.69f;
         int width = 1920;
         int hight = 1080;
         
-        Vector3 direction = new Vector3(pix_x - (width / 2), (hight / 2) - pix_y, (width / 2) / Mathf.Tan(fixed_angle / 2));
+        Vector3 direction = new Vector3(pix_x - (width / 2), pix_y - (hight / 2), (width / 2) / Mathf.Tan(fixed_angle / 2));
         direction.Normalize();
         //from local to global:
         direction = UnityEngine.Camera.main.transform.rotation * direction;
@@ -46,8 +47,9 @@ public class cast_ray : MonoBehaviour
         
         if (Physics.Raycast(origin, direction, out hit))
         {
-            //if (last_target != null)
-            //Destroy(last_target);
+            Debug.Log("WE GOT A HIT!");
+            if (last_target != null)
+                Destroy(last_target);
             
             last_target = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             Destroy(last_target.GetComponent<Collider>());
@@ -55,8 +57,8 @@ public class cast_ray : MonoBehaviour
             last_target.transform.localScale *= 0.05f;
             last_target.GetComponent<Renderer>().material.color = Color.red;
 
-            //if (last_label != null)
-            //Destroy(last_label);
+            if (last_label != null)
+                Destroy(last_label);
             last_label = Instantiate(prefab, hit.point, Quaternion.identity);
 
             last_label.GetComponentInChildren<Microsoft.MixedReality.Toolkit.UI.ToolTip>().ToolTipText = label_text;

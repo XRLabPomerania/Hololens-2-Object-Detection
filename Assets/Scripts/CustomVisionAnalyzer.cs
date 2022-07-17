@@ -79,7 +79,6 @@ public class CustomVisionAnalyzer : MonoBehaviour
 #if UNITY_WEBGL
             webglWarning.SetActive(true);
 #endif
-        Debug.Log("XXX2");
         this.blazeFaceInitialized = true;
         //_webcam = new WebCamTexture(_deviceName, _resolution.x, _resolution.y);
         _buffer = new RenderTexture(_resolution.x, _resolution.y, 0);
@@ -126,7 +125,6 @@ public class CustomVisionAnalyzer : MonoBehaviour
     {
         if (useBlazeFace && blazeFaceInitialized)
         {
-            Debug.Log("XXXß " + blazeFaceInitialized);
             // Format video inpout
             if (!_webcam.didUpdateThisFrame) return;
 
@@ -300,15 +298,19 @@ public class CustomVisionAnalyzer : MonoBehaviour
 
         foreach (var detection in Detections)
         {
-            Debug.Log("Face detected at " + detection.center);
+            //Debug.Log("CENTER OF DETECTION IS " + detection.center);
+            float x = detection.center.x * 1080;
+            float y = detection.center.y * 1080;
+            Debug.Log("detection is at " + x + " " + y);
+            castRay.CastToPixel((int)x + 420, (int)y, "Person");
             if (i == _markers.Length) break;
             var marker = _markers[i++];
-            marker.detection = detection;
-            marker.gameObject.SetActive(true);
+            //marker.detection = detection;
+            //marker.gameObject.SetActive(true);
         }
 
-        for (; i < _markers.Length; i++)
-            _markers[i].gameObject.SetActive(false);
+        //for (; i < _markers.Length; i++)
+            //_markers[i].gameObject.SetActive(false);
 
     }
 
