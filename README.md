@@ -31,3 +31,8 @@ Then go to File > Build Settings and select Architecture ARM64-bit, D3D Project 
 * Get the MRTK feature Tool here: https://www.microsoft.com/en-us/download/details.aspx?id=102778
 * When opening Unity, go into the hierarchy in the top left, under MixedRealityPlayspace > Main Camera
   - in the Inspector on the right, scroll to the script Custom Vision Analyzer and add the "efficientnet-lite4-11 (NN Model)", "labels_map" from the Assets/Models folder and the Cube Object from the hierarchy into the respective boxes in the Inspector panel.
+  
+### Demo
+
+
+![ezgif com-gif-maker-3](https://user-images.githubusercontent.com/62561593/179522693-71c68e32-08a7-48c5-b4cd-14b12fd181c0.gif)
