@@ -10,12 +10,12 @@ public class GazeCursor : MonoBehaviour
 {
     // The cursor mesh renderer
     private MeshRenderer meshRenderer;
-    public cast_ray cast_ray;
+    public RayCastHelper cast_ray;
     public ImageCapture imgCap;
 
     private void Awake()
     {
-        cast_ray = gameObject.GetComponent<cast_ray>();
+        cast_ray = gameObject.GetComponent<RayCastHelper>();
         SceneOrganiser.instance.castRay = cast_ray;
     }
     void Start()

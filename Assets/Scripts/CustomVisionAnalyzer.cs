@@ -23,7 +23,7 @@ public class CustomVisionAnalyzer : MonoBehaviour
     bool useBlazeFace = true;
 
     // General properties
-    cast_ray castRay;
+    RayCastHelper castRay;
 
     // Unity UI Asset Interface
     [Header("Model Stuff")]
@@ -51,8 +51,6 @@ public class CustomVisionAnalyzer : MonoBehaviour
 
     private Texture2D _image = null;
     [SerializeField, Range(0, 1)] float _threshold = 0.75f;
-    //[SerializeField] UI.RawImage _previewUI = null;
-    //[SerializeField] Marker _markerPrefab = null;
 
     Marker[] _markers = new Marker[16];
 
@@ -71,8 +69,6 @@ public class CustomVisionAnalyzer : MonoBehaviour
     int _size;
 
     public GameObject webglWarning;
-    //public UI.Dropdown _cameraDropdown;
-    //public UI.Dropdown _backendDropdown;
 
     public void InitializeBlazeFace()
     {
@@ -87,15 +83,8 @@ public class CustomVisionAnalyzer : MonoBehaviour
 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
-        //AddCameraOptions();
-        //AddBackendOptions();
-
         //initialization
         AllocateObjects();
-
-        // Marker population
-        for (var i = 0; i < _markers.Length; i++)
-            //_markers[i] = Instantiate(_markerPrefab, _previewUI.transform);
 
         // Static image test: Run the detector once.
         if (_image != null) runInference(_image);
@@ -298,19 +287,13 @@ public class CustomVisionAnalyzer : MonoBehaviour
 
         foreach (var detection in Detections)
         {
-            //Debug.Log("CENTER OF DETECTION IS " + detection.center);
             float x = detection.center.x * 1080;
             float y = detection.center.y * 1080;
-            Debug.Log("detection is at " + x + " " + y);
             castRay.CastToPixel((int)x + 420, (int)y, "Person");
             if (i == _markers.Length) break;
             var marker = _markers[i++];
-            //marker.detection = detection;
-            //marker.gameObject.SetActive(true);
-        }
 
-        //for (; i < _markers.Length; i++)
-            //_markers[i].gameObject.SetActive(false);
+        }
 
     }
 
@@ -362,7 +345,6 @@ public class CustomVisionAnalyzer : MonoBehaviour
         var inputs = new Dictionary<string, Tensor> {
             { EFICNET_INPUT_NAME, tensor }
         };
-        //Debug.Log("TENSOR DONE");
         efficientNetWorker.Execute(inputs);
         Tensor outputTensor = efficientNetWorker.PeekOutput(EFICNET_OUTPUT_NAME);
 

@@ -17,9 +17,9 @@ using UnityEngine.UI;
 public class SceneOrganiser : MonoBehaviour
 {
     public static SceneOrganiser instance;
-    cast_ray ray;
+    RayCastHelper ray;
     internal GameObject cursor;
-    public cast_ray castRay;
+    public RayCastHelper castRay;
     internal GameObject imagePlane;
     public CustomVisionAnalyzer analyzer;
     internal float probabilityThreshold = 0.99f;
@@ -73,7 +73,7 @@ public class SceneOrganiser : MonoBehaviour
 
             if (bestPrediction.probability > probabilityThreshold)
             {
-                ray = SceneOrganiser.instance.GetComponent<cast_ray>();
+                ray = SceneOrganiser.instance.GetComponent<RayCastHelper>();
                 //ray.ChangeLastLabel(bestPrediction.tagName);
             }
         }

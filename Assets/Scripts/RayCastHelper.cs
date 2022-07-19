@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Windows.WebCam;
 
-public class cast_ray : MonoBehaviour
+public class RayCastHelper : MonoBehaviour
 {
     private GameObject last_target;
     private GameObject last_label;
