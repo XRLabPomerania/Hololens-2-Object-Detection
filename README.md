@@ -37,3 +37,13 @@ If you have any trouble with this project, here are some information and resourc
 
 
 ![ezgif com-gif-maker-3](https://user-images.githubusercontent.com/62561593/179522693-71c68e32-08a7-48c5-b4cd-14b12fd181c0.gif)
+
+
+### Background
+
+This project is the result a collaboration of members of the University of Greifswald (https://www.instagram.com/xrlabpomerania/), Szeczin.LAB (https://szczecinlab.pl/) and Makerspace Greifswald e.V. (https://www.instagram.com/makerspacehgw/).
+
+
+**Dieses Projekt wird durch die Europäische Union aus Mitteln des Europäischen Fonds für Regionale Entwicklung unterstützt (Fonds für kleine Projekte Interreg V A Mecklenburg-Vorpommern / Brandenburg / Polen in der Euoregion Pomerania).**
+
+
