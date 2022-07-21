@@ -70,6 +70,19 @@ public class CustomVisionAnalyzer : MonoBehaviour
 
     public GameObject webglWarning;
 
+    public void initWebcam()
+    {
+        string camName = WebCamTexture.devices[0].name;
+        _webcam = new WebCamTexture(camName, 1080, 1080, 30);
+        //rawImage.texture = webcamTexture
+        //gameObject.GetComponent<Renderer>().material.mainTexture = webcamTexture;
+        SceneOrganiser.instance.analyzer._webcam = _webcam;
+        //SceneOrganiser.instance.analyzer.InitializeBlazeFace();
+        _buffer = new RenderTexture(_resolution.x, _resolution.y, 0);
+        _webcam.requestedFPS = 30;
+        _webcam.Play();
+    }
+
     public void InitializeBlazeFace()
     {
 #if UNITY_WEBGL
@@ -77,9 +90,7 @@ public class CustomVisionAnalyzer : MonoBehaviour
 #endif
         this.blazeFaceInitialized = true;
         //_webcam = new WebCamTexture(_deviceName, _resolution.x, _resolution.y);
-        _buffer = new RenderTexture(_resolution.x, _resolution.y, 0);
-        _webcam.requestedFPS = 30;
-        _webcam.Play();
+        initWebcam();
 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
@@ -98,10 +109,11 @@ public class CustomVisionAnalyzer : MonoBehaviour
         castRay = SceneOrganiser.instance.castRay;
         if (useBlazeFace)
         {
-
+            InitializeBlazeFace(); 
         } 
         else
         {
+            initWebcam();
             eficnetPreprocess = SceneOrganiser.instance.GetComponent<Preprocess>();
             efficientNetModel = ModelLoader.Load(efficientNetModelFile);
             efficientNetWorker = WorkerFactory.CreateWorker(WorkerFactory.Type.ComputePrecompiled, efficientNetModel);
@@ -112,6 +124,7 @@ public class CustomVisionAnalyzer : MonoBehaviour
 
     void Update()
     {
+        castRay = SceneOrganiser.instance.castRay;
         if (useBlazeFace && blazeFaceInitialized)
         {
             // Format video inpout
@@ -126,6 +139,10 @@ public class CustomVisionAnalyzer : MonoBehaviour
             var offset = new Vector2((1 - gap) / 2, vflip ? 1 : 0);
 
             Graphics.Blit(_webcam, _buffer, scale, offset);
+        } else
+        {
+            SceneOrganiser.instance.analyzer.StartAnalysis(_webcam);
+
         }
     }
 

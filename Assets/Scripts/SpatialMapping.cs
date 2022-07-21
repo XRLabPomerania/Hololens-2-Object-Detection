@@ -16,13 +16,11 @@ public class SpatialMapping : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Spatial Mapping Awake");
         Instance = this;
     }
 
     void Start()
     {
-        Debug.Log("Spatial Mapping Start");
         // Initialize and configure the collider
         // TODO: fix the spatialMappingCollider
         //spatialMappingCollider = gameObject.GetComponent<MeshCollider>();

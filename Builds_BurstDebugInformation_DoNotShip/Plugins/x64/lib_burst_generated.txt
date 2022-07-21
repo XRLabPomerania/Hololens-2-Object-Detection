@@ -145,7 +145,6 @@ Library: lib_burst_generated
 --generate-link-xml=Temp\burst.link.xml
 --output=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Plugins\x64\lib_burst_generated
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
---root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.ARFoundation.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.ARSubsystems.dll
@@ -164,6 +163,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Providers.WindowsSceneUnderstanding.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Gltf.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Barracuda.dll
+--root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.OpenXR.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
@@ -570,7 +570,6 @@ Library: lib_burst_generated
 --generate-link-xml=Temp\burst.link.xml
 --output=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Plugins\x64\lib_burst_generated
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
---root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.ARFoundation.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.ARSubsystems.dll
@@ -589,6 +588,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Providers.WindowsSceneUnderstanding.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Gltf.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Barracuda.dll
+--root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.OpenXR.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
@@ -996,7 +996,6 @@ Library: lib_burst_generated
 --generate-link-xml=Temp\burst.link.xml
 --output=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Plugins\x64\lib_burst_generated
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
---root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.ARFoundation.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.ARSubsystems.dll
@@ -1015,6 +1014,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Providers.WindowsSceneUnderstanding.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Gltf.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Barracuda.dll
+--root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.OpenXR.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
@@ -1314,7 +1314,6 @@ Library: lib_burst_generated
 --generate-link-xml=Temp\burst.link.xml
 --output=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Plugins\x64\lib_burst_generated
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
---root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.ARFoundation.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.ARSubsystems.dll
@@ -1333,6 +1332,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Providers.WindowsSceneUnderstanding.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Gltf.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Barracuda.dll
+--root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.XR.OpenXR.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\Yannik\Documents\GitHub\Hololens-2-Object-Detection\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
