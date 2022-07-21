@@ -36,6 +36,7 @@ If you have any trouble with this project, here are some information and resourc
 * Get the MRTK feature Tool here: https://www.microsoft.com/en-us/download/details.aspx?id=102778
 * When opening Unity, you may need to go into the hierarchy in the top left, under MixedRealityPlayspace > Main Camera
   - in the Inspector on the right, scroll to the script Custom Vision Analyzer and add the "efficientnet-lite4-11 (NN Model)", "labels_map" and the BlazeFace model from the Assets/Models folder and the Cube Object from the hierarchy into the respective boxes in the Inspector panel.
+* if you get a null pointer exception on the castRay variables inside the CustomVisionAnalyzer, you have to select the Main Camera object inside the Hololens Scene Hierarchy and drag and drop it into the Scene Organizer component (into the Cast Ray field) of the Main Camera. The same principle applies to the Analyzer object. 
   
 ## Preview (BlazeFace model used)
 
