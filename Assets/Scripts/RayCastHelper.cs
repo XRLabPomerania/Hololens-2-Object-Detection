@@ -33,7 +33,7 @@ public class RayCastHelper : MonoBehaviour
     }
     public void CastToPixel(int pix_x, int pix_y, string label_text)
     {
-        Debug.Log("CAST TO PXL CALLED WITH " + pix_x + " " + pix_y);
+        Debug.Log("CastToPixel called with pix_x: " + pix_x + " and pix_y: " + pix_y);
         float fixed_angle = (Mathf.PI / 180) * 64.69f;
         int width = 1920;
         int hight = 1080;
@@ -63,7 +63,6 @@ public class RayCastHelper : MonoBehaviour
 
             last_label.GetComponentInChildren<Microsoft.MixedReality.Toolkit.UI.ToolTip>().ToolTipText = label_text;
 
-            //Debug.Log(hit.point);
             //last_label.transform.position = hit.point-0.1f*direction;
             //doesn't work yet
 

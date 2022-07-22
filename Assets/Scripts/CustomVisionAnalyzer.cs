@@ -77,7 +77,6 @@ public class CustomVisionAnalyzer : MonoBehaviour
         //rawImage.texture = webcamTexture
         //gameObject.GetComponent<Renderer>().material.mainTexture = webcamTexture;
         SceneOrganiser.instance.analyzer._webcam = _webcam;
-        //SceneOrganiser.instance.analyzer.InitializeBlazeFace();
         _buffer = new RenderTexture(_resolution.x, _resolution.y, 0);
         _webcam.requestedFPS = 30;
         _webcam.Play();
@@ -89,12 +88,10 @@ public class CustomVisionAnalyzer : MonoBehaviour
             webglWarning.SetActive(true);
 #endif
         this.blazeFaceInitialized = true;
-        //_webcam = new WebCamTexture(_deviceName, _resolution.x, _resolution.y);
         initWebcam();
 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
-        //initialization
         AllocateObjects();
 
         // Static image test: Run the detector once.
